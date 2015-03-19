@@ -1,8 +1,8 @@
 #Author: Dirk Bruyland
-# This is the Readme.md file for
+ This is the Readme.md file for
 # the project repo for Course: get and clean data
-# as described on this site:
-#
+ as described on this site:
+
 
 Content
 =======
@@ -11,7 +11,7 @@ The following files are in this repo:
 1. The RAW DATA 
 This is a ZIPped file (bzip2) fetched as is on March 03 2015, 13:49
 This file was fetched from the site:
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
+"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  "
 
 2. Readme.md
 This is this file
