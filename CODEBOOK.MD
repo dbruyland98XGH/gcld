@@ -1,28 +1,58 @@
-rev.8
-Author: Dirk Bruyland
-This is the codebook for the project described in
+rev.11
+#Author: Dirk Bruyland
+# codebook for project Getting and Cleaning data
+as described in:
+[https://class.coursera.org/getdata-012]
 
 
+# CODEBOOK
+--
+There are 88 variables in total
 
-codebook
-=========
-All units of all variables are taken as provided in the raw data.
+## 86 measurements
+All units of all 86 measurements/features variables are taken as provided in the raw data.
+They have not been scaled or offset by the script.
+They have been averaged out over the recordings for each subject and activity, but this does not
+change the unit.
 
+## subject 
+column/variable 87 is the subject number and is an integer.
 
+## training activity
+column/variable 88 is the activity/training number and is factored as:
 
-design
-=======
-1.All inertia data is discarded:
+1 WALKING
+
+2 WALKINGUPSTAIRS
+
+3 WALKINGDOWNSTAIRS
+
+4 SITTING
+
+5 STANDING
+
+6 LAYING 
+ 
+
+# design
+---
+## 1 All inertia data is discarded:
 This is the raw data in the folders with names "inertia signals".
 
-2. Only the features with "mean" OR "std" in their name are kept, the rest is discarded.
+## 2 Mean std measurements only
+Only the measurements/features with "mean" OR "std" in their name are kept, the rest is discarded.
 
-So only the below feature variables are used from the X_test files in train and test folder.
+Only the below measurement/feature variables are used from the X_test  and X_train
+files in train and test folder.
 
 The below is cut from run_analysisH.csv file.
 the first digit in each row refers to the feature in file features.txt
-the second name in each row is the modified feature name used for the variable/column.
-The third digit (=1) means the variable/column will be used in the tidy data.
+
+The second name in each row is the modified feature name used for the variable/column in the 
+tidy data table, the R script will use these names to label the variables/columns.
+
+The third digit (=1) means the variable/column will be used in the tidy data, and is meant for
+allowing the R script to base its subsetting on.
 
 The file run_analysisH.txt contains many other rows with last digit=0 which means these
 variables/columns willl not be used in the tidy data.
@@ -199,9 +229,14 @@ variables/columns willl not be used in the tidy data.
 
 561,561angleZgravityMean,1
 
+562,subject,1
+
+563,training,1
+
  
-3. The activity names used are as follows, and
-will be used in a variable/column as a factor.
+## 3 The activity names used are as follows, and
+will be used in a variable/column as a factor variable
+in the last variable/column of the tidy data set.
 
 1 WALKING
 
