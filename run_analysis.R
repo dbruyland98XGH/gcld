@@ -95,6 +95,8 @@ colnames(Vm)<-savednames
 # make data frame, and name and factor the activities
 #
 Vm<-data.frame(Vm)
+colnames(Vm)<-savednames
+
 Vm[,88]<-factor(Vm[,88],labels=c("WALKING","WALKINGUPSTAIRS","WALKINGDOWNSTAIRS","SITTING","STANDING","LAYING"))
 #
 # write the tidy data in file tidy.txt

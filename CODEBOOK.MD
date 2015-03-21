@@ -1,22 +1,28 @@
-rev.11
-#Author: Dirk Bruyland
+
 # codebook for project Getting and Cleaning data
 as described in:
 [https://class.coursera.org/getdata-012]
+##Author: Dirk Bruyland
 
 
 # CODEBOOK
 --
-There are 88 variables in total
+There are 88 variables/columns in the tidy data table in total
 
 ## 86 measurements
-All units of all 86 measurements/features variables are taken as provided in the raw data.
-They have not been scaled or offset by the script.
+All UNITS of all 86 measurements/features variables are taken as provided in the raw data.
+They have not been scaled or offset by the script, and they are values normalized -1..+1..
 They have been averaged out over the recordings for each subject and activity, but this does not
 change the unit.
 
+
+
 ## subject 
-column/variable 87 is the subject number and is an integer.
+column/variable 87 is the subject number and is an integer 1..30.
+the subjects with id's: 2,4,9,10,12,13,18,20,24 are "test" subjects.
+the other subjects are "training" subjects.
+
+
 
 ## training activity
 column/variable 88 is the activity/training number and is factored as:
@@ -33,223 +39,237 @@ column/variable 88 is the activity/training number and is factored as:
 
 6 LAYING 
  
+ 
 
-# design
+ ##list of variables
+ Note the first digits of each name refer to the entry in features.txt file.
+
+1tBodyAccmeanX
+
+2tBodyAccmeanY
+
+3tBodyAccmeanZ
+
+4tBodyAccstdX
+
+5tBodyAccstdY
+
+6tBodyAccstdZ
+
+41tGravityAccmeanX
+
+42tGravityAccmeanY
+
+43tGravityAccmeanZ
+
+44tGravityAccstdX
+
+45tGravityAccstdY
+
+46tGravityAccstdZ
+
+81tBodyAccJerkmeanX
+
+82tBodyAccJerkmeanY
+
+83tBodyAccJerkmeanZ
+
+84tBodyAccJerkstdX
+
+85tBodyAccJerkstdY
+
+86tBodyAccJerkstdZ
+
+121tBodyGyromeanX
+
+122tBodyGyromeanY
+
+123tBodyGyromeanZ
+
+124tBodyGyrostdX
+
+125tBodyGyrostdY
+
+126tBodyGyrostdZ
+
+161tBodyGyroJerkmeanX
+
+162tBodyGyroJerkmeanY
+
+163tBodyGyroJerkmeanZ
+
+164tBodyGyroJerkstdX
+
+165tBodyGyroJerkstdY
+
+166tBodyGyroJerkstdZ
+
+201tBodyAccMagmean
+
+202tBodyAccMagstd
+
+214tGravityAccMagmean
+
+215tGravityAccMagstd
+
+227tBodyAccJerkMagmean
+
+228tBodyAccJerkMagstd
+
+240tBodyGyroMagmean
+
+241tBodyGyroMagstd
+
+253tBodyGyroJerkMagmean
+
+254tBodyGyroJerkMagstd
+
+266fBodyAccmeanX
+
+267fBodyAccmeanY
+
+268fBodyAccmeanZ
+
+269fBodyAccstdX
+
+270fBodyAccstdY
+
+271fBodyAccstdZ
+
+294fBodyAccmeanFreqX
+
+295fBodyAccmeanFreqY
+
+296fBodyAccmeanFreqZ
+
+345fBodyAccJerkmeanX
+
+346fBodyAccJerkmeanY
+
+347fBodyAccJerkmeanZ
+
+348fBodyAccJerkstdX
+
+349fBodyAccJerkstdY
+
+350fBodyAccJerkstdZ
+
+373fBodyAccJerkmeanFreqX
+
+374fBodyAccJerkmeanFreqY
+
+375fBodyAccJerkmeanFreqZ
+
+424fBodyGyromeanX
+
+425fBodyGyromeanY
+
+426fBodyGyromeanZ
+
+427fBodyGyrostdX
+
+428fBodyGyrostdY
+
+429fBodyGyrostdZ
+
+452fBodyGyromeanFreqX
+
+453fBodyGyromeanFreqY
+
+454fBodyGyromeanFreqZ
+
+503fBodyAccMagmean
+
+504fBodyAccMagstd
+
+513fBodyAccMagmeanFreq
+
+516fBodyBodyAccJerkMagmean
+
+517fBodyBodyAccJerkMagstd
+
+526fBodyBodyAccJerkMagmeanFreq
+
+529fBodyBodyGyroMagmean
+
+530fBodyBodyGyroMagstd
+
+539fBodyBodyGyroMagmeanFreq
+
+542fBodyBodyGyroJerkMagmean
+
+543fBodyBodyGyroJerkMagstd
+
+552fBodyBodyGyroJerkMagmeanFreq
+
+555angletBodyAccMeangravity
+
+556angletBodyAccJerkMeangravityMean
+
+557angletBodyGyroMeangravityMean
+
+558angletBodyGyroJerkMeangravityMean
+
+559angleXgravityMean
+
+560angleYgravityMean
+
+561angleZgravityMean
+
+subject
+
+training
+
+ 
+ 
+ 
+ 
+ 
+# DESIGN
 ---
+An overview what the repo produces and contains is given in readme.md.
+Here some more information is provided on how this is done.
+More information is in the comments of the script.
+
 ## 1 All inertia data is discarded:
 This is the raw data in the folders with names "inertia signals".
+They are simply not used by the script.
 
-## 2 Mean std measurements only
+## 2 Mean and std measurements only
 Only the measurements/features with "mean" OR "std" in their name are kept, the rest is discarded.
 
-Only the below measurement/feature variables are used from the X_test  and X_train
-files in train and test folder.
-
-The below is cut from run_analysisH.csv file.
-the first digit in each row refers to the feature in file features.txt
-
-The second name in each row is the modified feature name used for the variable/column in the 
-tidy data table, the R script will use these names to label the variables/columns.
-
-The third digit (=1) means the variable/column will be used in the tidy data, and is meant for
-allowing the R script to base its subsetting on.
-
-The file run_analysisH.txt contains many other rows with last digit=0 which means these
-variables/columns willl not be used in the tidy data.
-
-1,1tBodyAccmeanX,1
-
-2,2tBodyAccmeanY,1
-
-3,3tBodyAccmeanZ,1
-
-4,4tBodyAccstdX,1
-
-5,5tBodyAccstdY,1
-
-6,6tBodyAccstdZ,1
-
-41,41tGravityAccmeanX,1
-
-42,42tGravityAccmeanY,1
-
-43,43tGravityAccmeanZ,1
-
-44,44tGravityAccstdX,1
-
-45,45tGravityAccstdY,1
-
-46,46tGravityAccstdZ,1
-
-81,81tBodyAccJerkmeanX,1
-
-82,82tBodyAccJerkmeanY,1
-
-83,83tBodyAccJerkmeanZ,1
-
-84,84tBodyAccJerkstdX,1
-
-85,85tBodyAccJerkstdY,1
-
-86,86tBodyAccJerkstdZ,1
-
-121,121tBodyGyromeanX,1
-
-122,122tBodyGyromeanY,1
-
-123,123tBodyGyromeanZ,1
-
-124,124tBodyGyrostdX,1
-
-125,125tBodyGyrostdY,1
-
-126,126tBodyGyrostdZ,1
-
-161,161tBodyGyroJerkmeanX,1
-
-162,162tBodyGyroJerkmeanY,1
-
-163,163tBodyGyroJerkmeanZ,1
-
-164,164tBodyGyroJerkstdX,1
-
-165,165tBodyGyroJerkstdY,1
-
-166,166tBodyGyroJerkstdZ,1
-
-201,201tBodyAccMagmean,1
-
-202,202tBodyAccMagstd,1
-
-214,214tGravityAccMagmean,1
-
-215,215tGravityAccMagstd,1
-
-227,227tBodyAccJerkMagmean,1
-
-228,228tBodyAccJerkMagstd,1
-
-240,240tBodyGyroMagmean,1
-
-241,241tBodyGyroMagstd,1
-
-253,253tBodyGyroJerkMagmean,1
-
-254,254tBodyGyroJerkMagstd,1
-
-266,266fBodyAccmeanX,1
-
-267,267fBodyAccmeanY,1
-
-268,268fBodyAccmeanZ,1
-
-269,269fBodyAccstdX,1
-
-270,270fBodyAccstdY,1
-
-271,271fBodyAccstdZ,1
-
-294,294fBodyAccmeanFreqX,1
-
-295,295fBodyAccmeanFreqY,1
-
-296,296fBodyAccmeanFreqZ,1
-
-345,345fBodyAccJerkmeanX,1
-
-346,346fBodyAccJerkmeanY,1
-
-347,347fBodyAccJerkmeanZ,1
-
-348,348fBodyAccJerkstdX,1
-
-349,349fBodyAccJerkstdY,1
-
-350,350fBodyAccJerkstdZ,1
-
-373,373fBodyAccJerkmeanFreqX,1
-
-374,374fBodyAccJerkmeanFreqY,1
-
-375,375fBodyAccJerkmeanFreqZ,1
-
-424,424fBodyGyromeanX,1
-
-425,425fBodyGyromeanY,1
-
-426,426fBodyGyromeanZ,1
-
-427,427fBodyGyrostdX,1
-
-428,428fBodyGyrostdY,1
-
-429,429fBodyGyrostdZ,1
-
-452,452fBodyGyromeanFreqX,1
-
-453,453fBodyGyromeanFreqY,1
-
-454,454fBodyGyromeanFreqZ,1
-
-503,503fBodyAccMagmean,1
-
-504,504fBodyAccMagstd,1
-
-513,513fBodyAccMagmeanFreq,1
-
-516,516fBodyBodyAccJerkMagmean,1
-
-517,517fBodyBodyAccJerkMagstd,1
-
-526,526fBodyBodyAccJerkMagmeanFreq,1
-
-529,529fBodyBodyGyroMagmean,1
-
-530,530fBodyBodyGyroMagstd,1
-
-539,539fBodyBodyGyroMagmeanFreq,1
-
-542,542fBodyBodyGyroJerkMagmean,1
-
-543,543fBodyBodyGyroJerkMagstd,1
-
-552,552fBodyBodyGyroJerkMagmeanFreq,1
-
-555,555angletBodyAccMeangravity,1
-
-556,556angletBodyAccJerkMeangravityMean,1
-
-557,557angletBodyGyroMeangravityMean,1
-
-558,558angletBodyGyroJerkMeangravityMean,1
-
-559,559angleXgravityMean,1
-
-560,560angleYgravityMean,1
-
-561,561angleZgravityMean,1
-
-562,subject,1
-
-563,training,1
-
- 
-## 3 The activity names used are as follows, and
-will be used in a variable/column as a factor variable
-in the last variable/column of the tidy data set.
-
-1 WALKING
-
-2 WALKINGUPSTAIRS
-
-3 WALKINGDOWNSTAIRS
-
-4 SITTING
-
-5 STANDING
-
-6 LAYING 
- 
- 
- 
- 
+First a complete table is made with all 561 features/variables.
+This is done by reading in the X_test,y_test,subject_test
+and X_train,y_train, subject_train files.
+One table is made from these files, with 563 columns and 10300rows.
+(561 columns for the features/variables and 2 columns for subject id and training/activity
+id)
+This is accomplished with rbind() and cbind() functions.
+
+The helper file run_analysisH.csv is read into a table
+with 3 columns and 563 rows.
+The first column refers to the entry in the raw data file features.txt
+The 2nd colum provides an edited readable name for the feature
+the 3rd column indicates whether the feature is selected(1) for the tidy data
+or not selected for the tidy data(0)
+
+Then the selection of features/variables is made in the script.
+This is done by subsetting the table with all the 561 features/variables
+with the information of the 3rd column of the run_analysis.csv file
+
+## 3 making column means
+The subsetted table (named in the script X_sel) is then turned into a list
+where each element only contains data for one subject and one activity only.
+Each element is a dataframe and the means are made per column with the colMeans()
+function.
+This is accomplished with the split() and lapply() functions.
+The resut is a list with 180 elements, and each element is a vector with 88
+column means.
+
+## making a tidy table
+The above produced list with summarized column means is turned into a dataframe again
+by shifting all the column means in one big vector and reformatting the one big vector
+back into one table of 180 rows and 88 variables. 
+Then the column with training/activities is made into a factor variable
+and then the column names provided by the helper file column 2 are inserted into
+the final tidy data table. 
