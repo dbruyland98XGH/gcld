@@ -16,13 +16,14 @@
 #
 #
 #
-library(dplyr)
+
 
 # check if rawdata present if not load it from original source
 if(!file.exists("./data")){
 dir.create("./data")
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
 download.file(fileUrl,destfile="./data/rawdata.zip")
+return("run again after unzipping")
 }
 
 #

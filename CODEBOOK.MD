@@ -41,9 +41,11 @@ column/variable 88 is the activity/training number and is factored as:
  
  
 
- ##list of variables
+ ## list of variables
+ 
  Note the first digits of each name refer to the entry in features.txt file.
 
+ 
 1tBodyAccmeanX
 
 2tBodyAccmeanY
@@ -231,9 +233,12 @@ An overview what the repo produces and contains is given in readme.md.
 Here some more information is provided on how this is done.
 More information is in the comments of the script.
 
+
 ## 1 All inertia data is discarded:
 This is the raw data in the folders with names "inertia signals".
 They are simply not used by the script.
+
+
 
 ## 2 Mean and std measurements only
 Only the measurements/features with "mean" OR "std" in their name are kept, the rest is discarded.
@@ -257,16 +262,21 @@ Then the selection of features/variables is made in the script.
 This is done by subsetting the table with all the 561 features/variables
 with the information of the 3rd column of the run_analysis.csv file
 
+
+
 ## 3 making column means
 The subsetted table (named in the script X_sel) is then turned into a list
 where each element only contains data for one subject and one activity only.
 Each element is a dataframe and the means are made per column with the colMeans()
 function.
+
 This is accomplished with the split() and lapply() functions.
-The resut is a list with 180 elements, and each element is a vector with 88
+
+The result is a list with 180 elements, and each element is a vector with 88
 column means.
 
-## making a tidy table
+
+## 4 making a tidy table
 The above produced list with summarized column means is turned into a dataframe again
 by shifting all the column means in one big vector and reformatting the one big vector
 back into one table of 180 rows and 88 variables. 
