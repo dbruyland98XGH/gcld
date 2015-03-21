@@ -41,7 +41,7 @@ column/variable 88 is the activity/training number and is factored as:
  
  
 
- ## list of variables
+## list of variables
  
  Note the first digits of each name refer to the entry in features.txt file.
 

@@ -7,6 +7,9 @@
  the course project as described on this site:
 [https://class.coursera.org/getdata-012]
 
+
+
+
 #CONTENT
 ---
 What is in this repo.
@@ -48,6 +51,9 @@ This file also explains the design.
 
 
 
+
+
+
 # INSTRUCTION
 ---
 How to use this repo.
@@ -65,6 +71,9 @@ called tidy.txt in the working directory.
 
 If no data directory is there, there will
 one be created and the rawdata is fetched from the original site.
+
+
+
 
 
 
